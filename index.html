@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple JS slider</title>
+    <link href="css/slider.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
+  </head>
+  <body>
+
+    <h1 id="main-title">Simple JS slider</h1>
+
+    <h3><a id="options" href="#">Options and Data</a></h3>
+
+    <div id="options-container">
+
+      <div class="vbox w700p clear">
+        <h4>All options</h4>
+        <table>
+          <tr>
+            <th>Option</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>-</td>
+            <td>jump to <a href="#data">data</a></td>
+          </tr>
+          <tr>
+            <td>delay</td>
+            <td>5000</td>
+            <td>time each image/group will stay visible, in milliseconds</td>
+          </tr>
+          <tr>
+            <td>element</td>
+            <td>-</td>
+            <td>jquery element selector which will be the container</td>
+          </tr>
+          <tr>
+            <td>hMargin</td>
+            <td>10</td>
+            <td>if <b>view_groups</b> == true, margin between the images in each group, in pixels</td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>300</td>
+            <td>height of the slider, in pixels. if <b>vertical_stretch</b> value is set to true, this value will be increased</td>
+          </tr>
+          <tr>
+            <td>load_all</td>
+            <td>true</td>
+            <td>if set to true, images won't be visible until all of them are loaded. otherwise as soon as the first one is loaded it will be shown</td>
+          </tr>
+          <tr>
+            <td>max_circles</td>
+            <td>9999</td>
+            <td>if the number of images are more than this value, switcher circles won't be shown</td>
+          </tr>
+          <tr>
+            <td>resize_if_many</td>
+            <td>false</td>
+            <td>if set to true (and <b>view_groups</b> is true too), images will be resized on the fly. it's useful when the images have different dimensions</td>
+          </tr>
+          <tr>
+            <td>show_overlay</td>
+            <td>true</td>
+            <td>to show or not to show the overlay pattern</td>
+          </tr>
+          <tr>
+            <td>timeout</td>
+            <td>1000</td>
+            <td>time the process of switching from one image/group to another will take, in milliseconds</td>
+          </tr>
+          <tr>
+            <td>vPadding</td>
+            <td>0</td>
+            <td>vertical padding of the container, in pixels (this only works if <b>view_groups</b> option is set to true, and you may also have to set <b>resize_if_many</b> option to true)</td>
+          </tr>
+          <tr>
+            <td>vertical_stretch</td>
+            <td>false</td>
+            <td>if set to true, height of the slider will be increased depending on the height of the screen height. this option comes in hand when the width of a slider is set to 100% of the screen width</td>
+          </tr>
+          <tr>
+            <td>view_groups</td>
+            <td>false</td>
+            <td>if set to true, images will be divided into groups and more than one of them will be shown at a time. switcher circles aren't available if using groups</td>
+          </tr>
+          <tr>
+            <td>width</td>
+            <td>900</td>
+            <td>obviously, width of a slider, in pixels</td>
+          </tr>
+        </table>
+      </div>
+
+      <a name="data"></a>
+      <div class="vbox w700p clear">
+        <h4>Data format</h4>
+        <div>
+          <ul>
+            <li>Data is an array of objects.</li>
+            <li>Each of the objects must have <b>img_src</b> property</li>
+            <li>and may have two other properties - <b>url</b> and <b>title</b></li><br />
+            <li><b>img_src</b> property is of course the source of an image file (image url)</li><br />
+            <li>if <b>url</b> property is set, the corresponding image will be a link and it's href attribute will be this url</li><br />
+            <li><b>title</b> property is a title which will be shown when hovering an image</li><br />
+            <li>Note that if you use <b>url</b> and/or <b>title</b>, you'll have to set <b>show_overlay</b> option to false. Otherwise title won't be shown and links won't be clickable</li>
+          </ul>
+          <code>var data =
+[
+  {
+    "img_src": "img/src.jpg"
+  },
+  {
+    "img_src": "some/image/file.jpg",
+    "title": "Just a title"
+  },
+  {
+    "img_src": "path/to/image.jpg",
+    "url": "http://some/url/"
+  },
+  {
+    "img_src": "http://goo.gl/s6lvL",
+    "url": "http://google.com/",
+    "title": "Google Inc."
+  },
+  {
+    "img_src": "http://goo.gl/NvmIM",
+    "url": "http://www.ledzeppelin.com/",
+    "title": "Led Zeppelin"
+  }
+]</code>
+        </div>
+      </div>
+
+    </div>
+
+    <h3><a id="examples" href="#ex">Examples</a></h3>
+
+    <div id="examples-container">
+
+      <div class="vbox w700p clear">
+        <h4>Using basic options</h4>
+        <div>
+          <div id="s1" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>Using slider with just some basic options:
+            <b>width</b>, <b>height</b>, <b>element</b> selector and <b>data</b>.</li>
+            <li>Required options are only <b>element</b> and <b>data</b>.</li>
+          </ul>
+          <code>var options =
+  {
+    width:         700,
+    height:        210,
+    element:       $('#s1'),
+    data:          [...]
+  };</code>
+        </div>
+      </div>
+
+      <div class="vbox w700p clear">
+        <h4>Controlling the number of circles</h4>
+        <div>
+          <div id="s2" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>The number of images in this case is 20.</li>
+            <li>It means that if we change <b>max_circles</b>
+            option to something that's less than 20, for example 9, switcher circles won't appear.</li>
+            <li>Default value for this option is 9999.</li>
+          </ul>
+          <code>var options =
+  {
+    width:         700,
+    height:        210,
+    max_circles:   9,
+    element:       $('#s2'),
+    data:          [...]
+  };</code>
+        </div>
+      </div>
+
+      <div class="vbox w700p clear">
+        <h4>Different height and width</h4>
+        <div>
+          <div id="s3" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>Changed <b>width</b> and <b>height</b> options.</li>
+            <li>Images always match the 100% of the container's width, so the height is proportionally calculated.</li>
+            <li>For example, if you have an image with dimensions of 1000x500 and a slider with width option of 500 and
+            height option of 200, the resized image's size will be 500x250 and the bottom 50 pixels will be overflown.</li>
+          </ul>
+          <code>var options =
+  {
+    width:         600,
+    height:        300,
+    max_circles:   9,
+    element:       $('#s3'),
+    data:          [...]
+  };</code>
+        </div>
+      </div>
+
+      <div class="vbox w700p clear">
+        <h4>Viewing in groups</h4>
+        <div>
+          <div id="s4" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>We're using <b>view_groups</b> option here.</li>
+            <li>It means that images will be divided into groups and instead of switching from one image to another,
+            we'll switch between groups of images.</li>
+            <li>Note that if doing so, switcher circles won't appear.</li>
+            <li>Basically how this works is that a function goes through all the images and adds the width of the current
+            image to the previous sum of widths. If the new sum is greater than the container's width, a new group is created
+            and it starts again. If not, current image is added to the current group and the function continues to
+            the next image.</li>
+          </ul>
+          <code>var options =
+    {
+      width:          700,
+      height:         210,
+      view_groups:    true,
+      resize_if_many: true,
+      element:        $('#s4'),
+      data:           [...]
+    };</code>
+        </div>
+      </div>
+
+      <div class="vbox w700p clear">
+        <h4>Different vertical padding and horizontal margin</h4>
+        <div>
+          <div id="s5" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>Using <b>vPadding</b> and <b>hMargin</b> options, which only work when <b>view_groups</b> option is set to true.</li>
+            <li>Default values are 0 for <b>vPadding</b> and 10 for <b>hMargin</b>.</li>
+          </ul>
+          <code>var options =
+    {
+      width:          700,
+      height:         210,
+      vPadding:       10,
+      hMargin:        13,
+      view_groups:    true,
+      resize_if_many: true,
+      element:        $('#s5'),
+      data:           [...]
+    };</code>
+        </div>
+      </div>
+
+      <div class="vbox w700p clear">
+        <h4>Delay and timeout options</h4>
+        <div>
+          <div id="s6" class="slider"></div>
+        </div>
+        <div>
+          <ul>
+            <li>Using <b>delay</b> and <b>timeout</b> options.</li>
+            <li><b>delay</b> is the time each image/group will stay visible.</li>
+            <li><b>timeout</b> is the time the process of switching from one image/group to another will take.</li>
+          </ul>
+          <code>var options =
+    {
+      width:          700,
+      height:         210,
+      timeout:        2000,
+      delay:          3000,
+      element:        $('#s6'),
+      data:           [...]
+    };</code>
+        </div>
+      </div>
+
+    </div>
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+.slider
+{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.slider .container
+{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider .container .loader
+{
+  background-image: url(../images/loader.gif);
+  background-color: transparent;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  color: #747474;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.slider .container .loader div
+{
+  padding-top: 48px;
+}
+
+.slider .container > .slide, .slider .container .group
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 190;
+  display: none;
+  width: 100%;
+}
+
+.slider .container .group
+{
+  text-align: center;
+}
+
+.slider .container > .group > .inner-cont
+{
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.slider .container .group .slide
+{
+  display: block;
+  float: left;
+  margin: 0px 10px;
+}
+
+.slider .container .group .slide:first-child
+{
+  margin-left: 0 !important;
+}
+
+.slider .container .group .slide:last-child
+{
+  margin-right: 0 !important;
+}
+
+.slider .container .group .slide a:hover
+{
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, .08); 
+}
+
+.slider .overlay
+{
+  display: none;
+  position: absolute;
+  z-index: 200;
+  top: 0px;
+  left: 0px;
+  background: url('../images/slider-overlay.png');
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.switcher_circles
+{
+    position: absolute;
+    display: none;
+    width: 100%;
+    bottom: 13%;
+    text-align: center;
+    z-index: 210;
+}
+
+
+.switcher_button
+{
+    position: absolute;
+    width: 16%;
+    height: 100%;
+    top: 0px;
+    z-index: 210;
+    opacity: .15;
+    -webkit-transition: opacity .25s;
+    background-color: rgba(255, 255, 255, .45);
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.switcher_button:hover
+{
+    opacity: 1;
+}
+
+.switcher_button[direction="left"]
+{
+    left: 0px;
+    background-image: url(../images/slider-left.png);
+}
+
+.switcher_button[direction="right"]
+{
+    right: 0px;
+    background-image: url(../images/slider-right.png);
+}
+
+.switcher_circles .circle, .switcher_circles .circle_selected
+{
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #fff;
+    width: 9px;
+    height: 9px; 
+    margin: 0 3px;
+    background: #C7C9DD;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.switcher_circles .circle:hover { background: #5079cb; }
+.switcher_circles .circle_selected { background: #5079cb !important; cursor: default; }

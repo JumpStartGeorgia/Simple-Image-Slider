@@ -1,0 +1,151 @@
+.clearfix:after, .clear:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+* html .clearfix, * html .clear             		{ zoom: 1; } /* IE6 */
+
+*:first-child+html .clearfix, *:first-child+html .clear { zoom: 1; } /* IE7 */
+
+body
+{
+  padding: 0px;
+  margin: 0px;
+  color: #333;
+  font-family: Arial, Sans-serif;
+}
+
+#main-title
+{
+  width: 100%;
+  text-align: center;
+}
+
+h3
+{
+  width: 100%;
+  text-align: center;
+}
+
+#options-container
+{
+  display: none;
+}
+
+#examples-container
+{
+}
+
+.vbox
+{
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 0px 10px 20px;
+  background: #fafafa;
+  border: 1px solid #F0f0f0;
+}
+
+.vbox table
+{
+  font-size: 13px;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #dadada;
+  border-spacing: 0;
+}
+
+.vbox th
+{
+  text-align: left;
+}
+
+.vbox th, .vbox td
+{
+  padding: 5px 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+}
+
+.vbox td:hover
+{
+  background: #fff;
+  color: #000;
+}
+
+.vbox th:last-child, .vbox td:last-child
+{
+  border-right: none;
+}
+
+.vbox tr:last-child td
+{
+  border-bottom: none;
+}
+
+.vbox td:nth-child(2)
+{
+  color: #003800;
+  font-family: monospace;
+}
+
+.vbox.w700p
+{
+  width: 700px !important;
+  margin: 0 auto 20px;
+}
+
+.vbox.w700p > *
+{
+  width: 700px !important;
+}
+
+.vbox > div, .vbox > h4
+{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 21px;
+}
+
+.vbox > div:last-child span, .vbox > div:last-child ul
+{
+  float: left;
+  list-style: none;
+  margin: 0;
+  display: block;
+  max-width: 50%;
+  font-size: 13px;
+  text-align: justify;
+  padding: 11px;
+  background: #f0f0f0;
+  color: #000;
+  border: 1px solid #dadada;
+}
+
+.vbox > div:last-child ul li
+{
+  margin-bottom: 10px;
+}
+
+b
+{
+  font-weight: bold;
+}
+
+.vbox > div:last-child code
+{
+  font-size: 12px;
+  float: right;
+  text-align: left;
+  padding: 10px;
+  display: block;
+  white-space: pre;
+  border: 1px solid #999;
+  background: #333;
+  color: #fff;
+}
+
+
+
